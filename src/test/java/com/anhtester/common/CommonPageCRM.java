@@ -7,7 +7,7 @@ import com.anhtester.projects.website.crm.pages.Projects.ProjectPageCRM;
 import com.anhtester.projects.website.crm.pages.SignIn.SignInPageCRM;
 import org.openqa.selenium.By;
 
-public class CommonPageCRM {
+public class CommonPageCRM extends CommonSteps{
 
     public SignInPageCRM signInPage;
     public DashboardPageCRM dashboardPage;

@@ -14,7 +14,7 @@ public class LoginSteps extends CommonPageCRM {
 
     @Given("User navigate to url {string}")
     public void userNavigateToUrl(String url) {
-        //WebUI.getURL(url);
+//        WebUI.getURL(url);
     }
 
     @When("User login with username {string} and password {string} valid")

@@ -31,7 +31,7 @@ public class TargetFactory {
                 webdriver = BrowserFactory.valueOf(browserName.toUpperCase()).createDriver();
                 break;
             case REMOTE:
-                //Create new driver on Cloud (Selenium Grid, Docker) from method below
+                //Create new driver on Cloud (Selenium Grid, DockerChrome) from method below
                 webdriver = createRemoteInstance(BrowserFactory.valueOf(browserName.toUpperCase()).getOptions());
                 break;
             default:
@@ -50,7 +50,7 @@ public class TargetFactory {
                 webdriver = BrowserFactory.valueOf(browser.toUpperCase()).createDriver();
                 break;
             case REMOTE:
-                //Create new driver on Cloud (Selenium Grid, Docker) from method below
+                //Create new driver on Cloud (Selenium Grid, DockerChrome) from method below
                 webdriver = createRemoteInstance(BrowserFactory.valueOf(browser.toUpperCase()).getOptions());
                 break;
             default:

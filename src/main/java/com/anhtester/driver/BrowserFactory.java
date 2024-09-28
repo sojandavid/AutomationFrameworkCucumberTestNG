@@ -45,8 +45,13 @@ public enum BrowserFactory {
             options.addArguments("--disable-infobars");
             options.addArguments("--disable-notifications");
             options.addArguments("--remote-allow-origins=*");
+            options.setBinary("/usr/bin/chromium");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
             if (Boolean.valueOf(FrameworkConstants.HEADLESS) == true) {
-                options.addArguments("--headless=new");
+//                options.addArguments("--headless=new");
+                options.addArguments("--headless");
                 options.addArguments("window-size=1800,900");
             }
 

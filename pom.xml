@@ -55,7 +55,7 @@
 
         <!-- Suite XML path -->
         <suite.feature>src/test/resources/suites/SuiteFeatureByTag.xml</suite.feature>
-        <suite.feature.login.cms>src/test/resources/suites/SuiteFeatureLoginCMS.xml</suite.feature.login.cms>
+        <suite.feature.login.cms>src/test/resources/suites/SuiteFeatureSigninCRM.xml</suite.feature.login.cms>
     </properties>
 
     <dependencies>
@@ -365,6 +365,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <parallel>classes</parallel>
+                    <threadCount>1</threadCount>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>2</value>
+                        </property>
+                    </properties>
                     <suiteXmlFiles>
                         <!-- Call Suite name global set up above -->
                         <suiteXmlFile>${suite.feature.login.cms}</suiteXmlFile>

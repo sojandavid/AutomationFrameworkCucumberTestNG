@@ -8,6 +8,7 @@ import com.anhtester.projects.website.crm.pages.Dashboard.DashboardPageCRM;
 import com.anhtester.utils.DecodeUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+//import com.anhtester.keywords.WebUI;
 
 import java.util.Hashtable;
 
@@ -40,8 +41,10 @@ public class SignInPageCRM extends CommonPageCRM {
         openWebsite(FrameworkConstants.URL_CRM);
         verifyContains(getCurrentUrl(), pageUrl, "The url of sign in page not match.");
         verifyEquals(getPageTitle(), pageTitle, "The title of sign in page not match.");
-        clearAndFillText(inputEmail, excelHelpers.getCellData(1, SignInModel.getEmail()));
-        clearAndFillText(inputPassword, DecodeUtils.decrypt(excelHelpers.getCellData(1, SignInModel.getPassword())));
+//        clearAndFillText(inputEmail, excelHelpers.getCellData(1, SignInModel.getEmail()));
+//        clearAndFillText(inputPassword, DecodeUtils.decrypt(excelHelpers.getCellData(1, SignInModel.getPassword())));
+        clearAndFillText(inputEmail, "admin@example.com");
+        clearAndFillText(inputPassword, "123456");
         clickElement(buttonSignIn);
         waitForPageLoaded();
         verifyContains(getCurrentUrl(), getDashboardPage().pageUrl, "Sign in failed. Can not redirect to Dashboard page.");
@@ -54,8 +57,10 @@ public class SignInPageCRM extends CommonPageCRM {
         openWebsite(FrameworkConstants.URL_CRM);
         verifyContains(getCurrentUrl(), pageUrl, "The url of sign in page not match.");
         verifyEquals(getPageTitle(), pageTitle, "The title of sign in page not match.");
-        clearAndFillText(inputEmail, excelHelpers.getCellData(2, SignInModel.getEmail()));
-        clearAndFillText(inputPassword, DecodeUtils.decrypt(excelHelpers.getCellData(2, SignInModel.getPassword())));
+//        clearAndFillText(inputEmail, excelHelpers.getCellData(2, SignInModel.getEmail()));
+//        clearAndFillText(inputPassword, DecodeUtils.decrypt(excelHelpers.getCellData(2, SignInModel.getPassword())));
+        clearAndFillText(inputEmail, "admin@example.com");
+        clearAndFillText(inputPassword, "123456");
         clickElement(buttonSignIn);
         waitForPageLoaded();
         verifyContains(getCurrentUrl(), getDashboardPage().pageUrl, "Sign in failed. Can not redirect to Dashboard page.");
@@ -75,12 +80,14 @@ public class SignInPageCRM extends CommonPageCRM {
         return new DashboardPageCRM();
     }
 
-    public DashboardPageCRM signIn(Hashtable<String, String> data) {
+    public DashboardPageCRM signIn() {
         openWebsite(FrameworkConstants.URL_CRM);
         verifyContains(getCurrentUrl(), pageUrl, "The url of sign in page not match.");
         verifyEquals(getPageTitle(), pageTitle, "The title of sign in page not match.");
-        clearAndFillText(inputEmail, data.get(SignInModel.getEmail()));
-        clearAndFillText(inputPassword, DecodeUtils.decrypt(data.get(SignInModel.getPassword())));
+//        clearAndFillText(inputEmail, data.get(SignInModel.getEmail()));
+//        clearAndFillText(inputPassword, DecodeUtils.decrypt(data.get(SignInModel.getPassword())));
+        clearAndFillText(inputEmail, "admin@example.com");
+        clearAndFillText(inputPassword, "123456");
         clickElement(buttonSignIn);
         waitForPageLoaded();
         verifyContains(getCurrentUrl(), getDashboardPage().pageUrl, "Sign in failed. Can not redirect to Dashboard page.");
@@ -97,6 +104,23 @@ public class SignInPageCRM extends CommonPageCRM {
         waitForPageLoaded();
         Assert.assertTrue(checkElementExists(alertErrorMessage), "The Dashboard page not display.");
         Assert.assertEquals(getTextElement(alertErrorMessage), "Authentication failed!", "The error message content not match.");
+    }
+
+    public DashboardPageCRM signInWithTeamLeaderRole() {
+        excelHelpers.setExcelFile(FrameworkConstants.EXCEL_DATA_FILE_PATH, "SignIn");
+        openWebsite(FrameworkConstants.URL_CRM);
+//        Assert.assertTrue(WebUI.verifyPageUrl(pageUrl), "The url of sign in page not match.");
+//        Assert.assertTrue(WebUI.verifyPageTitle(pageTitle), "The title of sign in page not match.");
+//        setText(inputEmail, excelHelpers.getCellData(2, SignInModel.getEmail()));
+//        setText(inputPassword, DecodeUtils.decrypt(excelHelpers.getCellData(2, SignInModel.getPassword())));
+        clearAndFillText(inputEmail, "admin@example.com");
+        clearAndFillText(inputPassword, "123456");
+        clickElement(buttonSignIn);
+        waitForPageLoaded();
+//        Assert.assertTrue(WebUI.verifyPageUrl(dashboardPageURL), "Sign in failed. Can not redirect to Dashboard page.");
+        waitForPageLoaded();
+
+        return new DashboardPageCRM();
     }
 
 }
