@@ -4,18 +4,20 @@
  */
 
 package com.anhtester.testcases;
-
 import com.anhtester.common.BasePage;
-
 import com.anhtester.keywords.WebUI;
-import com.anhtester.projects.website.anhtester.pages.*;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import org.testng.annotations.*;
-
+import com.anhtester.projects.website.anhtester.pages.AnhTesterLoginPage;
+import com.anhtester.projects.website.anhtester.pages.AnhTesterDashboardPage;
+import com.anhtester.projects.website.anhtester.pages.AnhTesterEventsPage;
+import com.anhtester.projects.website.anhtester.pages.AnhTesterClientsPage;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterMethod;
 
 //@Epic("Regression Test CRM")
-@Feature("Sign In Test")
+//@Feature("Sign In Test")
 public class EventsTest extends BasePage {
 
     AnhTesterLoginPage anhTesterLoginPage;
