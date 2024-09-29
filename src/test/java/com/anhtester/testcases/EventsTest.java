@@ -14,7 +14,7 @@ import io.qameta.allure.Feature;
 import org.testng.annotations.*;
 
 
-@Epic("Regression Test CRM")
+//@Epic("Regression Test CRM")
 @Feature("Sign In Test")
 public class EventsTest extends BasePage {
 
