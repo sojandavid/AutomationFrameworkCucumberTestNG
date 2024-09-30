@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image from the Dockerfile
-                    docker.build("runmytest", ".")
+                    docker.build("runmytest", "Dockerfile")
                 }
             }
         }
