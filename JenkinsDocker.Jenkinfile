@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Pull the code from the repository
+                git 'https://github.com/sojandavid/AutomationFrameworkCucumberTestNG.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image from the Dockerfile
+                    docker.build("runmytest", ".")
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Run the Docker container from the built image
+                    def app = docker.image("runmytest").run('-d --name my-container')
+                }
+            }
+        }
+
+        stage('Test Application') {
+            steps {
+                script {
+                    // Here you could run some tests against the running container
+                    sh 'docker exec my-container mvn clean test -U'
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                script {
+                    // Stop and remove the container
+                    sh 'docker stop my-container'
+                    sh 'docker rm my-container'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up Docker images after the pipeline completes
+            sh 'docker rmi your-image-name || true'
+        }
+    }
+}
