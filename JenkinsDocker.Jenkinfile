@@ -46,7 +46,6 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             // Clean up Docker images after the pipeline completes
