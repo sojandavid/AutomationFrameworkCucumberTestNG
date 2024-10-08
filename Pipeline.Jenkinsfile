@@ -6,11 +6,7 @@ pipeline {
 
     agent any
 
-    environment {
-            PATH = "/usr/local/bin:/path/to/maven/bin:${env.PATH}"
-    }
-
-    stages {
+   stages {
 
         stage('Automation Test') {
             steps{
