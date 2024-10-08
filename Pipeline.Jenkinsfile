@@ -1,5 +1,9 @@
 pipeline {
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    }
+
     parameters {
         choice(
                 name: 'ScenarioThreadCount',
@@ -25,7 +29,7 @@ pipeline {
 
         stage('Automation Test') {
             steps{
-                bat "mvn clean test -U"
+                bat 'mvn clean test -U'
             }
         }
 
