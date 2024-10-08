@@ -1,13 +1,5 @@
 pipeline {
 
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-    }
-
-//    triggers {
-//        cron('30 4 * * 2')
-//    }
-
     parameters {
         choice(
                 name: 'ScenarioThreadCount',
@@ -30,14 +22,6 @@ pipeline {
                 bat 'java -version'
             }
         }
-
-//         stage('Automation Test') {
-//             steps{
-//                 configFileProvider([configFile(fileId:'MavenGlobalSettings', variable: 'MAVEN_SETTINGS_XML')]) {
-//                     bat "mvn -s $MAVEN_SETTINGS_XML clean test -U -Dqtest_project_name=FD -Dscenario_threadcount=${params.ScenarioThreadCount} -Doverride_result=true -Dqtest_test_ids=${params.TestSuiteNo}"
-//                 }
-//             }
-//         }
 
         stage('Automation Test') {
             steps{
