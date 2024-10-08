@@ -1,19 +1,7 @@
 pipeline {
 
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-    }
-
-    parameters {
-        choice(
-                name: 'ScenarioThreadCount',
-                choices: [
-                        '1',
-                        '2',
-                        '3',
-                ],
-                description: 'Scenario Threadcount')
-        string(name: 'TestSuitNo', defaultValue: 'TS-2558', description: 'TestSuiteNo')
+        buildDiscarder logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5')
     }
 
     agent any
@@ -33,22 +21,6 @@ pipeline {
             }
         }
 
-    }
-
-    post {
-        always {
-            cucumber fileIncludePattern: '**/*.json',
-                     failedStepsNumber: 1,
-                     skippedStepsNumber: 0,
-                     pendingStepsNumber: 0,
-                     undefinedStepsNumber: 0,
-                     failedFeaturesNumber: 0,
-                     buildStatus: 'FAILURE'
-        }
-        success {
-                archiveArtifacts allowEmptyArchive: true, artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/*/', '/reports/CucumberExtentReports/', fingerprint: true
-            }
-        }
     }
 
     cleanup {
