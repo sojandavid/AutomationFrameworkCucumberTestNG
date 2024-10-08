@@ -10,8 +10,8 @@ pipeline {
 
         stage('Check properties') {
             steps {
-                bat 'mvn -version'
-                bat 'java -version'
+                sh 'mvn -version'
+                sh 'java -version'
             }
         }
 
