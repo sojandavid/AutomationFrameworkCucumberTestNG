@@ -23,8 +23,4 @@ pipeline {
 
     }
 
-    cleanup {
-        cleanWs(notFailBuild: true)
-    }
-
 }
