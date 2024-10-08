@@ -8,13 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Check properties') {
-            steps {
-                sh 'mvn -version'
-                sh 'java -version'
-            }
-        }
-
         stage('Automation Test') {
             steps{
                 sh 'mvn clean test -U'
