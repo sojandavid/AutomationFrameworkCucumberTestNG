@@ -31,7 +31,7 @@ pipeline {
                          buildStatus: 'FAILURE'
             }
             success {
-                    archiveArtifacts artifacts: 'reports/CucumberReports/cucumber-reports/cucumber-html-reports/'
+                    archiveArtifacts artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/'
                 }
             }
         }
