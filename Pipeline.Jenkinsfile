@@ -31,7 +31,7 @@ pipeline {
                          buildStatus: 'FAILURE'
             }
             success {
-                    archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/CucumberReports/cucumber-reports/cucumber-html-reports/', fingerprint: true
+                    archiveArtifacts artifacts: 'reports/CucumberReports/cucumber-reports/cucumber-html-reports/'
                 }
             }
         }
