@@ -30,10 +30,10 @@ pipeline {
                          failedFeaturesNumber: 0,
                          buildStatus: 'FAILURE'
             }
-//             success {
-//                     archiveArtifacts allowEmptyArchive: true, artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/*/', '/reports/CucumberExtentReports/', fingerprint: true
-//                 }
-//             }
+            success {
+                    archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/CucumberReports/cucumber-reports/cucumber-html-reports/', fingerprint: true
+                }
+            }
         }
 
 }
