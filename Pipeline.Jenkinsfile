@@ -20,20 +20,20 @@ pipeline {
 
     }
 
-//     post {
-//             always {
-//                 cucumber fileIncludePattern: '**/*.json',
-//                          failedStepsNumber: 1,
-//                          skippedStepsNumber: 0,
-//                          pendingStepsNumber: 0,
-//                          undefinedStepsNumber: 0,
-//                          failedFeaturesNumber: 0,
-//                          buildStatus: 'FAILURE'
-//             }
+    post {
+            always {
+                cucumber fileIncludePattern: '**/*.json',
+                         failedStepsNumber: 1,
+                         skippedStepsNumber: 0,
+                         pendingStepsNumber: 0,
+                         undefinedStepsNumber: 0,
+                         failedFeaturesNumber: 0,
+                         buildStatus: 'FAILURE'
+            }
 //             success {
 //                     archiveArtifacts allowEmptyArchive: true, artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/*/', '/reports/CucumberExtentReports/', fingerprint: true
 //                 }
 //             }
-//         }
+        }
 
 }
