@@ -30,10 +30,10 @@ pipeline {
                          failedFeaturesNumber: 0,
                          buildStatus: 'FAILURE'
             }
-            success {
-                    archiveArtifacts artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/'
-                }
-            }
+//             success {
+//                     archiveArtifacts artifacts: '/reports/CucumberReports/cucumber-reports/cucumber-html-reports/'
+//                 }
+//             }
         }
 
 }
