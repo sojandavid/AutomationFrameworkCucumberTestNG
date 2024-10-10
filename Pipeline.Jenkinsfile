@@ -22,7 +22,7 @@ pipeline {
 
     post {
             always {
-                cucumber fileIncludePattern: '/target/cucumber-reports/*.json',
+                cucumber fileIncludePattern: '**/*.json',
                          failedStepsNumber: 1,
                          skippedStepsNumber: 0,
                          pendingStepsNumber: 0,
